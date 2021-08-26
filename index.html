@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./gird.css" />
+    <link rel="stylesheet" href="./app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="app.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>toDo App</h1>
+        <div class="todo">
+          <div class="row">
+            <div class="col-4 todo__col" data-status="todo">
+              <div class="todo__status">
+                to do
+                <span class="todo__counter">0</span>
+              </div>
+              <div class="btn btn--add">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <div class="todo__container">
+                <div class="todo__box">
+                  <div class="todo__item" draggable="true">
+                    <div class="todo__top">
+                      <div class="todo__dot todo__dot--green"></div>
+                      <div class="todo__type">Design</div>
+                      <div class="todo__icons">
+                        <i class="far fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                      </div>
+                    </div>
+                    <div class="todo__content">
+                      <p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4 todo__col" data-status="inProcess">
+              <div class="todo__status">
+                In process
+                <span class="todo__counter">0</span>
+              </div>
+              <div class="btn btn--add">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </div>
+              <div class="todo__container"></div>
+            </div>
+
+            <div class="col-4 todo__col" data-status="completed">
+              <div class="todo__status">
+                completed
+                <span class="todo__counter">0</span>
+              </div>
+              <div class="btn btn--add">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <div class="todo__container">
+                <div class="todo__box">
+                  <div class="todo__item" draggable="true">
+                    <div class="todo__top">
+                      <div class="todo__dot todo__dot--orange"></div>
+                      <div class="todo__type">Design</div>
+                      <div class="todo__icons">
+                        <i class="far fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                      </div>
+                    </div>
+                    <div class="todo__content">
+                      <p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal__content">
+        <form class="form" data-status="">
+          <h2>Add Edit To do</h2>
+          <div class="dropdown__container">
+            <label>Todo type</label>
+            <div class="dropdown" data-value="">
+              <div class="dropdown__select">
+                <span>Choose todo type</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <ul class="dropdown__option"></ul>
+            </div>
+          </div>
+          <div class="area">
+            <label for="todo">Todo</label>
+            <textarea
+              name="todo"
+              id="todo"
+              placeholder="Write here..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn--form">Submit</button>
+        </form>
+      </div>
+    </div>
+    -->
+  </body>
+</html>

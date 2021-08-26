@@ -1,0 +1,321 @@
+@font-face {
+    font-family: Roboto;
+    src: url('./fonts/Roboto-Light.ttf');
+  }
+  :root {
+    --primary-color: #fefefe;
+    --secondary-color: #58ad9c;
+    --text-color: #9b9b9b;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    font-family: Roboto, sans-serif;
+    overflow-x: hidden;
+    font-size: 18px;
+    display: flex;
+  }
+  .wrapper {
+    background-color: var(--primary-color);
+    width: 1400px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .container {
+    padding: 2rem;
+    max-width: 900px;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .top {
+    margin: 5rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+  }
+  .dark-mode {
+    margin-left: auto;
+  }
+  .input-switch {
+    display: none;
+  }
+  .input-switch:checked ~ .switch {
+    background-color: rgb(51, 51, 51);
+  }
+  .input-switch:checked ~ .switch::before {
+    left: unset;
+    right: 2px;
+    background-color: #fff;
+  }
+  .switch {
+    width: 4rem;
+    height: 2rem;
+    background-color: #fff;
+    display: block;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px 0px;
+    border-radius: 100rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.25s linear;
+  }
+  .switch::before {
+    content: '';
+    position: absolute;
+    width: 1.5rem;
+    height: 80%;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(51, 51, 51);
+    border-radius: 100rem;
+    transition: all 0.25s linear;
+  }
+  
+  .row {
+    flex-wrap: nowrap;
+  }
+  .todo__container {
+    width: 100%;
+    transition: all 0.2s linear;
+  }
+  .todo__col {
+    min-height: 100%;
+    min-width: 30rem;
+    background-color: rgba(88, 173, 156, 0.1);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    justify-content: stretch;
+  }
+  .todo__col + .todo__col {
+    margin-left: 2rem;
+  }
+  .todo__status {
+    color: #000;
+    font-weight: bold;
+    display: flex;
+  }
+  .todo__status .todo__counter {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(88, 173, 156, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    margin-left: auto;
+  }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+  }
+  .btn.btn--add {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(88, 173, 156, 0.3);
+    color: var(--secondary-color);
+    margin: 2rem 0;
+  }
+  .btn--add > i {
+    font-size: 1.4rem;
+  }
+  .todo__box {
+    width: 100%;
+    height: 100%;
+  }
+  .todo__box.hovered {
+    border: 2px dashed #000;
+  }
+  .todo__item {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    width: 100%;
+    cursor: grab;
+  }
+  .todo__item.visible {
+    opacity: 0;
+  }
+  .todo__box + .todo__box {
+    margin-top: 2rem;
+  }
+  .todo__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    cursor: default;
+  }
+  .todo__dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  .todo__dot--green {
+    background-color: green;
+  }
+  .todo__dot--red {
+    background-color: red;
+  }
+  .todo__dot--orange {
+    background-color: orange;
+  }
+  .todo__type {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .todo__icons {
+    margin-left: auto;
+  }
+  .todo__icons i {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+  }
+  .todo__icons > i + i {
+    margin-left: 5px;
+  }
+  .todo__content {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  /* -------------Modal------------------------ */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.26);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal.show {
+    display: flex;
+  }
+  .modal .modal__content {
+    width: 50rem;
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+  }
+  
+  /* -------------Form----------------------- */
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+  .dropdown {
+    width: 100%;
+    height: 4rem;
+    background-color: rgba(88, 173, 156, 0.3);
+    border-radius: 6px;
+    position: relative;
+  }
+  .dropdown .dropdown__select {
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-tap-highlight-color: transparent;
+    text-transform: capitalize;
+  }
+  .dropdown__select i {
+    margin-left: auto;
+  }
+  .dropdown__option {
+    background: #f4f8f8;
+    width: 100%;
+    max-height: 20rem;
+    position: absolute;
+    top: 100%;
+    margin-top: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  .dropdown__option.show {
+    visibility: visible;
+    opacity: 1;
+  }
+  .dropdown__option li {
+    padding: 1.5rem 1rem;
+    text-transform: capitalize;
+  }
+  .dropdown__option li:hover {
+    background-color: rgba(88, 173, 156, 0.3);
+  }
+  .area {
+    margin-top: 40px;
+  }
+  .form label {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  .area textarea {
+    color: rgb(126, 149, 204);
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: rgb(245, 246, 253);
+    border: 0px;
+    outline: none;
+    resize: none;
+    min-height: 16rem;
+    border-radius: 2rem;
+    line-height: 1.6;
+    font-family: Roboto, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+  .btn--form {
+    width: 20rem;
+    height: 5rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: auto;
+    margin-top: 2rem;
+    font-weight: bold;
+  }
+  /* ------------------Dark mode-------------------- */
+  /* .dark-mode,
+  .dark-mode .todo__status {
+    color: #fff;
+  }
+  .dark-mode body,
+  .dark-mode .wrapper {
+    background-color: rgb(51, 51, 51);
+    color: #fff;
+  }
+  .dark-mode .todo__item {
+    background-color: #1764ac;
+  } */
