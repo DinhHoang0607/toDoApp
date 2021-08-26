@@ -225,10 +225,10 @@ class App {
   }
   _getLocalStorage() {
     const listTodo = JSON.parse(localStorage.getItem("todoList"));
-    this.#list = listTodo?.map((item) => {
+    listTodo.forEach((item) => {
       const newTodo = new todoItem(item.status, item.type, item.content);
       newTodo._setId(item.id);
-      return newTodo;
+      this.#list.push(newTodo);
     });
     this._renderList();
   }
